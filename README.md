@@ -1,58 +1,9 @@
-## yolov5-face-occlusion-project(Hyunji Lee)
+## yolov5-face-occlusion-project
 - 연구 목표: YOLOv5 기반 얼굴검출 신경망을 사용하여, occlusion으로 얼굴 검출이 어려운 상황에서도 검출률을 올리는 방법을 연구한다.
 - occlusion: 사람의 손이 가렸을 때를 가정, 1가지 손 사진을 이용하여 의도적으로 얼굴부분을 가린다.
              얼굴과 손의 bounding box를 occlusion 정도로 정하여 가려지는 정도를 판단한다.
 - dataset: widerface dataset 중 1사람만 있는 데이터 사용(label에 1명만 인식된 경우)
 - 가장 mAP비율이 낮은 것을 train image에 50% 포함하여 재학습
-
-
-## What's New
-
-**2023.04** [yolov8-face](https://github.com/derronqi/yolov8-face) (🔥🔥🔥↑) 
-
-**2022.10** [yolov7-face](https://github.com/derronqi/yolov7-face) (🔥🔥🔥↑)
-
-
-**2022.8**: yolov7
-
-| Method           |  Test Size | Easy  | Medium | Hard  | FLOPs (B) @640 | 
-| -----------------| ---------- | ----- | ------ | ----- | -------------- | 
-| yolov7-lite-t    | 640        | 88.7  | 85.2   | 71.5  |  0.8           |
-| yolov7-lite-s    | 640        | 92.7  | 89.9   | 78.5  |  3.0           | 
-| yolov7-tiny      | 640        | 94.7  | 92.6   | 82.1  |  13.2          | 
-| yolov7s          | 640        | 94.8  | 93.1   | 85.2  |  16.8          | 
-| yolov7           | 640        | 96.9  | 95.5   | 88.0  |  103.4         | 
-| yolov7+TTA       | 640        | 97.2  | 95.8   | 87.7  |  103.4         | 
-
-
-**2021.12**: Yolov5-face to TensorRT. 
-
-|   Backbone   | Pytorch(ms) | TensorRT_FP16(ms) |
-| :----------: | :---------: | :---------------: |
-| yolov5n-0.5  |     7.7     |        2.1        |
-| yolov5n-face |     7.7     |        2.4        |
-| yolov5s-face |     5.6     |        2.2        |
-| yolov5m-face |     9.9     |        3.3        |
-| yolov5l-face |    15.9     |        4.5        |
-
-> Pytorch=1.10.0+cu102    TensorRT=8.2.0.6   Hardware=rtx2080ti
-
-**2021.11**: BlazeFace
-
-| Method               | multi scale | Easy  | Medium | Hard  | Model Size(MB) | Link  |
-| -------------------- | ----------- | ----- | ------ | ----- | -------------- | ----- |
-| BlazeFace            | Ture        | 88.5  | 85.5   | 73.1  | 0.472          | https://github.com/PaddlePaddle/PaddleDetection |
-| BlazeFace-FPN-SSH    | Ture        | 90.7  | 88.3   | 79.3  | 0.479          | https://github.com/PaddlePaddle/PaddleDetection |
-| yolov5-blazeface     | True        | 90.4  | 88.7   | 78.0  | 0.493          | https://pan.baidu.com/s/1RHp8wa615OuDVhsO-qrMpQ pwd:r3v3 https://drive.google.com/file/d/1adi6ke2vCLQFcpbvFqWo_J4wZIfPqSMG|
-| yolov5-blazeface-fpn | True        | 90.8  | 89.4   | 79.1  | 0.493          |  -    |
-
-
-**2021.08**: Add new training dataset [Multi-Task-Facial](https://drive.google.com/file/d/1Pwd6ga06cDjeOX20RSC1KWiT888Q9IpM/view?usp=sharing),improve large face detection.
-| Method               | Easy  | Medium | Hard  | 
-| -------------------- | ----- | ------ | ----- |
-| ***YOLOv5s***        | 94.56 | 92.92  | 83.84 |
-| ***YOLOv5m***        | 95.46 | 93.87  | 85.54 |
-
 
 ## Introduction
 
@@ -147,29 +98,6 @@ python3 evaluation.py
 First row: RetinaFace, 2nd row: YOLOv5m-Face 
 **YOLO5Face was used in the 3rd place standard face recogntion track of the [ICCV2021 Masked Face Recognition Challenge](https://www.face-benchmark.org/challenge.html).** 
 
-
-#### AXera demo
-
-https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax_yolov5s_face_steps.cc
-
-#### Android demo
-
-https://github.com/FeiGeChuanShu/ncnn_Android_face/tree/main/ncnn-android-yolov5_face
-
-#### OpenCV DNN demo
-
-https://github.com/hpc203/yolov5-face-landmarks-opencv-v2
-
-#### ONNXRuntime/MNN/TNN/NCNN C++ demo
-
-https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ort/cv/yolo5face.cpp
-
-https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/mnn/cv/mnn_yolo5face.cpp
-
-https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_yolo5face.cpp
-
-https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_yolo5face.cpp
-
 #### References
 
 https://github.com/ultralytics/yolov5
@@ -181,15 +109,4 @@ https://github.com/xialuxi/yolov5_face_landmark
 https://github.com/biubug6/Pytorch_Retinaface
 
 https://github.com/deepinsight/insightface
-
-
-#### Citation 
-- If you think this work is useful for you, please cite 
-
-      @article{YOLO5Face,
-      title = {YOLO5Face: Why Reinventing a Face Detector},
-      author = {Delong Qi and Weijun Tan and Qi Yao and Jingfeng Liu},
-      booktitle = {ArXiv preprint ArXiv:2105.12931},
-      year = {2021}
-      }
 
